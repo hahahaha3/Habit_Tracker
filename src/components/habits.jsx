@@ -11,18 +11,25 @@ class Habits extends Component {
     };
 
     // Spread Operator : 이 habits 라는 배열 안에 있는 아이템들을 하나하나씩 새로운 배열 안으로 복사해 오는 것을 말함. 
-    handleIncrement = (habit) => {
-        console.log(`handleIncrement ${habit.name}`);
+    handleIncrement = habit => {
         const habits = [...this.state.habits];
-        this.setState(this.state);
+        const index = habits.indexOf(habit);
+        habits[index].count++;
+        this.setState({ habits: habits });
+        // key: value 가 동일하면 생략도 가능함
     };
 
-    handleDecrement = (habit) => {
-        console.log(`handleDecrement ${habit.name}`);
+    handleDecrement = habit => {
+        const habits = [...this.state.habits];
+        const index = habits.indexOf(habit);
+        const count = habits[index].count - 1;
+        habits[index].count = count < 0 ? 0 : count;
+        this.setState({habits});
     };
 
-    handleDelete = (habit) => {
-        console.log(`handleDelete ${habit.name}`);
+    handleDelete = habit => {
+        const habits = this.state.habits.filter(item => item.id !== habit.id);
+        this.setState({habits});
     };
 
     render() {
