@@ -1,6 +1,6 @@
-import React, { Component } from 'react';
+import React, { PureComponent } from 'react';
 
-class HabitAddForm extends Component {
+class HabitAddForm extends PureComponent {
     // input 초기화 방법2
     formRef = React.createRef();
     inputRef = React.createRef();

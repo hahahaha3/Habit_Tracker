@@ -28,7 +28,7 @@ class Habits extends Component {
                     this.props.habits.map(habit => 
                         <Habit 
                             key={habit.id} 
-                            habit = {habit} 
+                            habit = {habit}
                             onIncrement={this.handleIncrement}
                             onDecrement={this.handleDecrement}
                             onDelete={this.handleDelete}
